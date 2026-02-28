@@ -24,4 +24,7 @@ interface SetupDao {
 
     @Query("SELECT COUNT(*) FROM flowers")
     suspend fun flowersCount(): Int
+
+    @Query("SELECT * FROM flowers")
+    suspend fun getAllFlowers(): List<FlowerEntity>
 }

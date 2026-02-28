@@ -9,6 +9,7 @@ suspend fun runDemo(db: FlowerShopDatabase) = withContext(Dispatchers.IO) {
 
     val bouquetDao = db.bouquetDao()
     val purchaseDao = db.purchaseDao()
+    val setupDao = db.setupDao()
 
     Log.d("SHOP", "START DEMONSTRATION")
 
@@ -53,6 +54,11 @@ suspend fun runDemo(db: FlowerShopDatabase) = withContext(Dispatchers.IO) {
             "После покупки букет '${bouquet.name}' доступен: $newAvailable шт"
         )
     }
+
+    val flowers = setupDao.getAllFlowers()
+    Log.d("SHOP", "Поля decoration и country")
+    bouquets.forEach { Log.d("SHOP", "${it.name} - decoration: ${it.decoration}") }
+    flowers.forEach { Log.d("SHOP", "${it.name} - country: ${it.country}") }
 
     Log.d("SHOP", "END OF THE DEMONSTRATION")
 }
