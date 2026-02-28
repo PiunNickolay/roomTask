@@ -17,7 +17,7 @@ import ru.nickolay.roomtask.data.local.entity.StockEntity
         BouquetEntity::class,
         BouquetCountEntity::class
     ],
-    version = 1
+    version = 2
 )
 abstract class FlowerShopDatabase: RoomDatabase() {
     abstract fun bouquetDao(): BouquetDao
